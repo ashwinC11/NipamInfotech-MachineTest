@@ -1,0 +1,38 @@
+﻿@model NipamInfotech_MachineTest.Models.Category
+
+
+<style>
+    .custom-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color:darkcyan;
+    }
+</style>
+<div class="custom-container" style="background-color: #f8f9fa; padding: 20px; border-radius: 5px;">
+    <h2 class="text-center">
+        @(Model.CategoryId == 0 ? "Create Category" : "Edit Category")
+    </h2>
+
+    <form asp-action="addEdit" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+
+        <div class="form-group">
+            <label asp-for="CategoryName">Category Name</label>
+            <br />
+            <br />
+
+            <input asp-for="CategoryName" class="form-control" />
+            <span asp-validation-for="CategoryName" class="text-danger"></span>
+        </div><br />
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">@((Model.CategoryId == 0) ? "Create" : "Save")</button>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </form>
+</div>
+
+
